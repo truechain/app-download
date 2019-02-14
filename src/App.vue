@@ -2,15 +2,18 @@
 div.page
   .page-con
     .page-con-left
-      img(src="~@/assets/images/logo_blue.png").page-con-left-logo
+      .page-con-left-logo(
+        :style="{'background-color': mainColor}"
+      )
       p.page-con-left-title TrueChain钱包
-      p.page-con-left-title-intr 简单、安全、有趣的区块链钱包
-      img(src="~@/assets/images/wallet.png").bj
+      p.page-con-left-title-intr {{text}}
+      img(:src="require(`@/assets/images/wallet${version ? '_' + version : ''}.png`)").bj
     .page-con-right
       a.down-btn(
         v-if="ua !== 'ios'"
         target="_blank",
         href="https://qiniu.truescan.net/file/true.apk",
+        :style="{'background-color': mainColor}"
         @click="onDownAndroid"
       )
         img(src="~@/assets/android.svg")
@@ -19,6 +22,7 @@ div.page
         v-if="ua !== 'android'"
         target="_blank",
         href="itms-services://?action=download-manifest&url=https://qiniu.truescan.net/file/true-wallet.plist",
+        :style="{'background-color': mainColor}"
         @click="onDownIos"
       )
         img(src="~@/assets/ios.svg")
@@ -27,11 +31,30 @@ div.page
 </template>
 
 <script>
+const colors = {
+  '214': '#f97873'
+}
+const texts = {
+  '214': '初链红包，支持TRUE、ETH收发红包'
+}
+
 export default {
   name: 'app',
   data () {
     return {
+      version: '',
+      mainColor: '#0071BC',
+      text: '简单、安全、有趣的区块链钱包',
       ua: ''
+    }
+  },
+  created () {
+    const reg = /(\?|&)v=([^&]*)(&|$)/
+    const res = location.search.match(reg)
+    if (res && res[2]) {
+      this.version = res[2]
+      this.mainColor = colors[this.version] || '#0071BC'
+      this.text = texts[this.version] || '简单、安全、有趣的区块链钱包'
     }
   },
   mounted() {
@@ -89,8 +112,7 @@ p
   .page-con-left-title-intr
       color #808590
       font-size 12px
-      font-weight 500
-      line-height 1.2
+      line-height 1.2em
       margin-bottom 30px
     .bj
       max-width 100%
@@ -105,7 +127,6 @@ p
       display flex
       align-items center
       justify-content center
-      background-color #0071BC
       width 300px
       border-radius 8px
       margin 20px 0px
@@ -122,7 +143,11 @@ p
   .page-con-left-logo
     width 80px
     height 80px
-    margin-bottom 10px
+    margin 0 auto 15px
+    border-radius 15px
+    background-image url(assets/images/logo.png)
+    background-size contain
+    background-repeat no-repeat
 .coy
   position absolute
   bottom 20px
