@@ -5,7 +5,7 @@ div.page
       .page-con-left-logo(
         :style="{'background-color': mainColor}"
       )
-      p.page-con-left-title TrueChain钱包
+      p.page-con-left-title True Wallet 下载
       p.page-con-left-title-intr {{text}}
       img(:src="require(`@/assets/images/wallet${version ? '_' + version : ''}.png`)").bj
     .page-con-right
