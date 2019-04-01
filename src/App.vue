@@ -5,8 +5,9 @@ div.page
       .page-con-left-logo(
         :style="{'background-color': mainColor}"
       )
-      p.page-con-left-title True Wallet 下载
-      p.page-con-left-title-intr {{text}}
+      p.page-con-left-title True Wallet 钱包下载 
+        span.en / Download
+      p.page-con-left-title-intr(v-html="text")
       img(:src="require(`@/assets/images/wallet${version ? '_' + version : ''}.png`)").bj
     .page-con-right
       a.down-btn(
@@ -17,7 +18,8 @@ div.page
         @click="onDownAndroid"
       )
         img(src="~@/assets/android.svg")
-        span.color_f Android版本下载
+        span.color_f Android版本下载 
+          span.en / Download
       a.down-btn(
         v-if="ua !== 'android'"
         target="_blank",
@@ -26,7 +28,8 @@ div.page
         @click="onDownIos"
       )
         img(src="~@/assets/ios.svg")
-        span.color_f iPhone版本下载
+        span.color_f iPhone版本下载 
+          span.en / Download
     p.coy Copyright ⓒ TrueChain All Rights Reserved.
 </template>
 
@@ -44,7 +47,7 @@ export default {
     return {
       version: '',
       mainColor: '#0071BC',
-      text: '简单、安全、有趣的区块链钱包',
+      text: '简单、安全、有趣的区块链钱包<br>Simple, Safe and Interesting Block Chain Wallet',
       ua: ''
     }
   },
@@ -54,7 +57,7 @@ export default {
     if (res && res[2]) {
       this.version = res[2]
       this.mainColor = colors[this.version] || '#0071BC'
-      this.text = texts[this.version] || '简单、安全、有趣的区块链钱包'
+      this.text = texts[this.version] || '简单、安全、有趣的区块链钱包<br>Simple, Safe and Interesting Block Chain Wallet'
     }
   },
   mounted() {
@@ -153,4 +156,7 @@ p
   bottom 20px
   font-size 12px
   color rgba(32,50,96,1)
+.en
+  display inline!important
+  opacity .7
 </style>
