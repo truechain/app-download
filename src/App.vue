@@ -30,7 +30,7 @@ div.page
         img(src="~@/assets/ios.svg")
         span.color_f iPhone版本下载 
           span.en / Download
-    p.coy Copyright ⓒ TrueChain All Rights Reserved.
+    p.coy Copyright ⓒ TRUECHAIN FOUNDATION LTD. All Rights Reserved.
 </template>
 
 <script>
