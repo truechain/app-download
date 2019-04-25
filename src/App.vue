@@ -47,7 +47,7 @@ export default {
     return {
       version: '',
       mainColor: '#0071BC',
-      text: '简单、安全、有趣的区块链钱包<br>Simple, Safe and Interesting Block Chain Wallet',
+      text: '简单、安全、有趣的区块链钱包<br>Simple, Safe and Interesting Blockchain Wallet',
       ua: ''
     }
   },
@@ -57,7 +57,7 @@ export default {
     if (res && res[2]) {
       this.version = res[2]
       this.mainColor = colors[this.version] || '#0071BC'
-      this.text = texts[this.version] || '简单、安全、有趣的区块链钱包<br>Simple, Safe and Interesting Block Chain Wallet'
+      this.text = texts[this.version] || '简单、安全、有趣的区块链钱包<br>Simple, Safe and Interesting Blockchain Wallet'
     }
   },
   mounted() {
