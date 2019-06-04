@@ -12,7 +12,6 @@ div.page
     .page-con-right
       a.down-btn(
         v-if="ua !== 'ios'"
-        target="_blank",
         href="https://qiniu.truescan.net/file/true.apk",
         :style="{'background-color': mainColor}"
         @click="onDownAndroid"
