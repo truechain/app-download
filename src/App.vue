@@ -22,7 +22,7 @@ div.page
       a.down-btn(
         v-if="ua !== 'android'"
         target="_blank",
-        href="itms-services://?action=download-manifest&url=https://qiniu.truescan.net/file/true-wallet.plist",
+        href="https://testflight.apple.com/join/bwvKiO5a",
         :style="{'background-color': mainColor}"
         @click="onDownIos"
       )
