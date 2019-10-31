@@ -20,6 +20,15 @@ div.page
         span.color_f Android版本下载 
           span.en / Download
       a.down-btn(
+        v-if="ua !== 'ios'"
+        href="https://play.google.com/store/apps/details?id=com.truewallet",
+        :style="{'background-color': mainColor}"
+        @click="onDownAndroid"
+      )
+        img(src="~@/assets/google-play.svg")
+        span.color_f Google Play下载 
+          span.en / Download
+      a.down-btn(
         v-if="ua !== 'android'"
         target="_blank",
         href="https://testflight.apple.com/join/bwvKiO5a",
