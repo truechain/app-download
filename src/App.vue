@@ -38,7 +38,7 @@ div.page
         img(src="~@/assets/ios.svg")
         span.color_f iPhone版本下载 
           span.en / Download
-    p.coy Copyright ⓒ TRUECHAIN FOUNDATION LTD. All Rights Reserved.
+      p.coy Copyright ⓒ TRUECHAIN FOUNDATION LTD. All Rights Reserved.
 </template>
 
 <script>
@@ -132,6 +132,7 @@ p
     padding 20px 0
     display flex
     height 180px
+    align-items center
     flex-direction column
     justify-content center
     .down-btn
@@ -151,6 +152,11 @@ p
         font-size 15px
         line-height 30px
         display block
+    .coy
+      text-align center
+      font-size 12px
+      color rgba(32,50,96,1)
+  
   .page-con-left-logo
     width 80px
     height 80px
@@ -159,11 +165,6 @@ p
     background-image url(assets/images/logo.png)
     background-size contain
     background-repeat no-repeat
-.coy
-  position absolute
-  bottom 20px
-  font-size 12px
-  color rgba(32,50,96,1)
 .en
   display inline!important
   opacity .7
